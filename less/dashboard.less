@@ -1,0 +1,243 @@
+// out: ../css/dashboard.css, compress: true, strictMath: true
+@import "_variables.less";
+@import "_icons-proofport.less";
+.mainNav {
+    position: fixed;
+    height: 100%;
+    font-size: 1.2em;
+    left: 0;
+    z-index: 999;
+    overflow: hidden;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    .navbar-collapse {
+        padding: 0;
+    }
+    .navbar {
+        height: 100%;
+        .navbar-brand {
+            position: absolute;
+            width: 100%;
+            height: 60px;
+        }
+    }
+    .nav {
+        width: 100%;
+        position: absolute;
+        top: 40%;
+        -webkit-transform-style: preserve-3d;
+        transform: translateY(-40%);
+        .active a {
+            background-color: @primary;
+            &:hover, &:focus {
+                background-color: transparent;
+            }
+        }
+        li {
+            float: none;
+            height: auto;
+            display: block;
+            a {
+                padding: 15px 15px 15px 15px;
+            }
+        }
+    }
+    .profile {
+        overflow-x: hidden;
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        cursor: pointer;
+        transition: padding 0.3s, background 0.3s;
+        a {
+            color: @dark-grey;
+            &:hover, &:focus {
+                color: @light-grey;
+                text-decoration: none;
+            }
+        }
+        .profilePic {
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            float: left;
+            img {
+                width: 100%;
+            }
+        }
+        span {
+            display: block;
+            margin: 8px 10px 0 60px;
+            min-width: 90px;
+            i {
+                line-height: 1.6;
+                float: right;
+            }
+        }
+    }
+    .touchMenuClose {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 1.5em;
+        display: none;
+    }
+    .closed {
+        width: 50px;
+        transition: width 0.3s, opacity 0.3s;
+        .brandP {
+            display: block;
+        }
+        .brandPP {
+            display: none;
+        }
+        .profile {
+            padding: 5px;
+            padding-bottom: 40px;
+            background: @primary;
+        }
+        .subNav li {
+            height: 0px;
+            transition: height 0.3s, opacity 0.3s;
+            opacity: 0;
+        }
+        .nav li i {
+            font-size: 1.2em;
+            margin-right: 20px;
+            transition: margin-right 0.3s, font-size 0.3s;
+        }
+    }
+    .open {
+        width: 230px;
+        transition: width 0.3s, opacity 0.3s;
+        .brandP {
+            display: none;
+        }
+        .brandPP {
+            display: block;
+        }
+        .profile {
+            padding: 20px;
+            background: @light-blue;
+        }
+        .subNav li {
+            overflow: hidden;
+            height: 40px;
+            transition: height 0.3s, opacity 0.3s;
+            opacity: 1;
+        }
+        .nav li i {
+            font-size: 1em;
+            margin-right: 15px;
+            transition: margin-right 0.3s, font-size 0.3s;
+        }
+    }
+}
+
+.subNav {
+    display: block;
+    overflow: hidden;
+    min-width: 230px;
+    position: relative !important;
+    top: 0;
+    li:first-child a {
+        color: @lightest-grey;
+    }
+    a {
+        text-decoration: none;
+        display: block;
+        color: @dark-grey;
+        padding: 0px !important;
+        margin: 0 0 5px 5px;
+        &:hover, &:focus {
+            color: @grey;
+        }
+    }
+}
+
+.projectNav {
+    .navbar-collapse {
+        padding: 0 !important;
+    }
+    background: @light-grey !important;
+    li {
+        width: 124px;
+        &:first-child {
+            width: 90px;
+        }
+        a {
+            padding-left: 8px;
+            font-weight: 300 !important;
+            &:hover, &:focus {
+                color: @primary !important;
+                background-color: transparent;
+            }
+        }
+    }
+    .active {
+        color: @primary;
+    }
+    .projectSelection {
+        color: @primary;
+        padding: 0px !important;
+        .btn-default {
+            text-align: left;
+            font-weight: 600;
+            text-transform: none;
+            color: @primary !important;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 20px 0 0 15px;
+        }
+        i {
+            font-size: 2em;
+            margin-right: 15px;
+            margin-left: 0px;
+            margin-top: -5px;
+            float: left;
+        }
+    }
+}
+
+.buttonContainer {
+    height: 60px;
+    padding-left: 50px;
+    overflow: hidden;
+    transition: padding 0.3s;
+}
+
+.open .buttonContainer {
+    padding-left: 230px;
+    transition: padding 0.3s;
+}
+
+@media (max-width: 1024px) {
+    .mainNav {
+        .nav {
+            top: 10%;
+            transform: translateY(0%);
+        }
+        .closed {
+            .touchMenuClose {
+                display: none;
+            }
+        }
+        .open {
+            .touchMenuClose {
+                display: block;
+            }
+        }
+    }
+    .projectNav {
+        .projectSelection {
+            span {
+                display: none;
+            }
+        }
+    }
+}
