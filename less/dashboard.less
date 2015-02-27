@@ -1,243 +1,223 @@
 // out: ../css/dashboard.css, compress: true, strictMath: true
 @import "_variables.less";
 @import "_icons-proofport.less";
-.mainNav {
-    position: fixed;
-    height: 100%;
-    font-size: 1.2em;
-    left: 0;
-    z-index: 999;
-    overflow: hidden;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    .navbar-collapse {
-        padding: 0;
-    }
-    .navbar {
-        height: 100%;
-        .navbar-brand {
-            position: absolute;
-            width: 100%;
-            height: 60px;
-        }
-    }
-    .nav {
-        width: 100%;
-        position: absolute;
-        top: 40%;
-        -webkit-transform-style: preserve-3d;
-        transform: translateY(-40%);
-        .active a {
-            background-color: @primary;
-            &:hover, &:focus {
-                background-color: transparent;
-            }
-        }
-        li {
-            float: none;
-            height: auto;
-            display: block;
-            a {
-                padding: 15px 15px 15px 15px;
-            }
-        }
-    }
-    .profile {
-        overflow-x: hidden;
-        position: absolute;
-        width: 100%;
-        bottom: 0px;
-        cursor: pointer;
-        transition: padding 0.3s, background 0.3s;
-        a {
-            color: @dark-grey;
-            &:hover, &:focus {
-                color: @light-grey;
-                text-decoration: none;
-            }
-        }
-        .profilePic {
-            width: 40px;
-            height: 40px;
-            overflow: hidden;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
+@import "p-navigation.less";
+ul {
+    list-style: none;
+}
+
+.fileOverview {
+    .overviewHeader {
+        margin-top: 80px;
+        margin-bottom: 20px;
+        .btn {
             float: left;
-            img {
-                width: 100%;
-            }
-        }
-        span {
-            display: block;
-            margin: 8px 10px 0 60px;
-            min-width: 90px;
-            i {
-                line-height: 1.6;
-                float: right;
-            }
-        }
-    }
-    .touchMenuClose {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        font-size: 1.5em;
-        display: none;
-    }
-    .closed {
-        width: 50px;
-        transition: width 0.3s, opacity 0.3s;
-        .brandP {
-            display: block;
-        }
-        .brandPP {
-            display: none;
-        }
-        .profile {
-            padding: 5px;
-            padding-bottom: 40px;
-            background: @primary;
-        }
-        .subNav li {
-            height: 0px;
-            transition: height 0.3s, opacity 0.3s;
-            opacity: 0;
-        }
-        .nav li i {
-            font-size: 1.2em;
-            margin-right: 20px;
-            transition: margin-right 0.3s, font-size 0.3s;
-        }
-    }
-    .open {
-        width: 230px;
-        transition: width 0.3s, opacity 0.3s;
-        .brandP {
-            display: none;
-        }
-        .brandPP {
-            display: block;
-        }
-        .profile {
-            padding: 20px;
-            background: @light-blue;
-        }
-        .subNav li {
-            overflow: hidden;
-            height: 40px;
-            transition: height 0.3s, opacity 0.3s;
-            opacity: 1;
-        }
-        .nav li i {
-            font-size: 1em;
-            margin-right: 15px;
-            transition: margin-right 0.3s, font-size 0.3s;
-        }
-    }
-}
-
-.subNav {
-    display: block;
-    overflow: hidden;
-    min-width: 230px;
-    position: relative !important;
-    top: 0;
-    li:first-child a {
-        color: @lightest-grey;
-    }
-    a {
-        text-decoration: none;
-        display: block;
-        color: @dark-grey;
-        padding: 0px !important;
-        margin: 0 0 5px 5px;
-        &:hover, &:focus {
-            color: @grey;
-        }
-    }
-}
-
-.projectNav {
-    .navbar-collapse {
-        padding: 0 !important;
-    }
-    background: @light-grey !important;
-    li {
-        width: 124px;
-        &:first-child {
-            width: 90px;
-        }
-        a {
-            padding-left: 8px;
-            font-weight: 300 !important;
-            &:hover, &:focus {
+            text-transform: none !important;
+            color: @grey !important;
+            box-shadow: 0 !important;
+            border: none;
+            &:hover {
                 color: @primary !important;
-                background-color: transparent;
+            }
+        }
+        .btn-group {
+            box-shadow: 0 0 0 0;
+        }
+        .upload-btn {
+            color: @dark-grey !important;
+            border: solid 1px @dark-grey;
+            border-style: dotted;
+        }
+        .viewSwitch {
+            position: absolute;
+            right: 15px;
+            top: 95px;
+            overflow: auto;
+            list-style: none;
+            color: @light-grey;
+            cursor: pointer;
+            li {
+                font-size: 1.8em;
+                float: left;
+                margin-left: 5px;
+                &:hover {
+                    color: @primary;
+                }
+            }
+            .active {
+                color: @grey;
             }
         }
     }
-    .active {
-        color: @primary;
+    .panel {
+        margin-bottom: 10px;
     }
-    .projectSelection {
-        color: @primary;
-        padding: 0px !important;
-        .btn-default {
-            text-align: left;
-            font-weight: 600;
-            text-transform: none;
-            color: @primary !important;
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 20px 0 0 15px;
+    .panel-body {
+        &:hover {
+            box-shadow: 4px;
         }
-        i {
-            font-size: 2em;
-            margin-right: 15px;
-            margin-left: 0px;
-            margin-top: -5px;
+        padding: 10px;
+        overflow: auto;
+        width: 100%;
+        position: relative;
+        img {
+            width: 112px;
             float: left;
-        }
-    }
-}
-
-.buttonContainer {
-    height: 60px;
-    padding-left: 50px;
-    overflow: hidden;
-    transition: padding 0.3s;
-}
-
-.open .buttonContainer {
-    padding-left: 230px;
-    transition: padding 0.3s;
-}
-
-@media (max-width: 1024px) {
-    .mainNav {
-        .nav {
-            top: 10%;
-            transform: translateY(0%);
-        }
-        .closed {
-            .touchMenuClose {
-                display: none;
+            &:hover {
+                opacity: 0.7;
             }
         }
-        .open {
-            .touchMenuClose {
+        .fileInfos {
+            height: 112px;
+            overflow: hidden;
+            width: calc( 100% - 322px);
+        }
+        h3,
+        h4 {
+            cursor: default;
+            display: block;
+            font-size: 1em;
+            color: @grey;
+            margin-left: 20px;
+        }
+        h3 {
+            margin-top: 35px;
+            color: @primary;
+            font-size: 1.3em;
+        }
+        .fileTools {
+            float: right;
+            position: absolute;
+            right: 20px;
+            top: 50px;
+            width: 210px;
+            height: 30px;
+            overflow: hidden;
+            i {
+                overflow: auto;
                 display: block;
+                float: right;
+                color: @grey;
+                font-size: 1.2em;
+                margin-left: 15px;
+                line-height: 2;
+                opacity: 0;
+                transition: opacity 0.3s;
+                &:hover {
+                    color: @primary;
+                    cursor: pointer;
+                }
+            }
+        }
+        &:hover {
+            i {
+                opacity: 1;
+                transition: opacity 0.3s;
             }
         }
     }
-    .projectNav {
-        .projectSelection {
-            span {
-                display: none;
-            }
+}
+
+.label {
+    float: right;
+    width: auto;
+    padding: 8px 8px;
+    font-weight: 300;
+    font-size: 1em;
+    margin-left: 20px;
+    border-radius: 4px;
+    margin-top: 8px;
+    p {
+        overflow: hidden;
+        margin-bottom: 0;
+        width: 0;
+        height: 0;
+        transition: width 0.3s, height 0.3s;
+    }
+    &:hover {
+        cursor: default;
+        margin-top: 0;
+        p {
+            width: 95px;
+            height: auto;
+            transition: width 0.3s, height 0.3s;
         }
     }
+}
+
+.projectsOverview {
+    display: block;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+    background: white;
+    h1 {
+        width: calc(100% - 50px);
+        float: left;
+        margin: 0;
+        padding-top: 10px;
+        margin-bottom: 20px;
+    }
+    .p-add {
+        display: block;
+        width: 50px;
+        float: left;
+        font-size: 1.7em;
+        padding: 15px 5px 0 10px;
+        text-align: right;
+        color: @dark-grey;
+        cursor: pointer;
+    }
+    .mdi-navigation-close {
+        position: fixed;
+        right: 20px;
+        top: 10px;
+        font-size: 2.5em;
+        cursor: pointer;
+    }
+    tbody {
+        border: none !important;
+    }
+    th,
+    td {
+        background-color: white;
+        text-align: center;
+        padding: 10px 0 10px 0 !important;
+        &:first-child {
+            text-align: left;
+        }
+        &:last-child {
+            text-align: right;
+        }
+        overflow: hidden;
+        border: none !important;
+    }
+    th {
+        font-weight: 200;
+        color: @grey;
+    }
+    .label {
+        position: absolute;
+        margin-top: 0;
+        right: 25px;
+        &:hover {
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23), 0 5px 15px rgba(0, 0, 0, 0.19);
+            margin-top: -8px;
+        }
+    }
+    
+}
+.projectsOverviewClosed{
+    display: none;
+}
+.darkener{
+        position: fixed;
+        z-index: 3;
+        left:0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        background: @primary;
+        opacity: 0.7;
+        cursor: zoom-out;
 }

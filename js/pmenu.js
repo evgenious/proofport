@@ -99,5 +99,24 @@
 
 	// add to global namespace
 	window.pMenu = pMenu;
+    
+   
+    
+    $( ".projectSelection" ).on( "click", function( event ) {
+        event.preventDefault();
+        $( ".projectsOverview" ).removeClass( "projectsOverviewClosed" );
+        $( ".darkener" ).removeClass( "projectsOverviewClosed" );
+    });
+     $( "#projectsOverviewClose" ).on( "click", function( event ) {
+        event.preventDefault();
+        $( ".projectsOverview" ).addClass( "projectsOverviewClosed" );
+        $( ".darkener" ).addClass( "projectsOverviewClosed" );
+    });
+    $( ".darkener" ).on( "click", function( event ) {
+        event.preventDefault();
+        $( ".projectsOverview" ).addClass( "projectsOverviewClosed" );
+        $( ".darkener" ).addClass( "projectsOverviewClosed" );
+    });
+    
 
 } )( window );
