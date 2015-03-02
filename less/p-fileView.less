@@ -1,0 +1,253 @@
+.fileView {
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    background: @primary;
+    transition: background 0.2s;
+    .header {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: @lightest-grey;
+        transition: top 0.3s;
+        i {
+            cursor: pointer;
+        }
+        .label {
+            float: left;
+            width: auto;
+            font-size: 1em;
+            margin-left: -20px;
+            border-radius: 4px;
+            margin-top: 14px;
+            p {
+                width: 95px;
+                height: auto;
+                margin-bottom: 0;
+            }
+        }
+        .btn-group {
+            box-shadow: 0 0 0 0;
+        }
+        .version {
+            float: left;
+            .btn {
+                font-size: 1.2em;
+                text-transform: none;
+                padding: 7px 10px 7px 10px;
+                a {
+                    text-align: left;
+                }
+            }
+        }
+        h3 {
+            float: left;
+            font-size: 1.2em;
+            font-weight: 600;
+            padding-left: 5px;
+        }
+        .togglebutton {
+            margin-top: 15px;
+        }
+        .pagination {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            i:first-child {
+                margin-right: 15px;
+            }
+            i:last-child {
+                margin-left: 15px;
+            }
+        }
+        .filesettings {
+            .btn {
+                font-size: 1.2em;
+            }
+            .dropdown-menu {
+                li {
+                    margin-top: 10px;
+                }
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+        .fileviewclose {
+            text-align: right;
+            font-size: 2em;
+            margin-top: 10px;
+        }
+    }
+    .fileImage {
+        padding-top: 60px;
+        margin-right: 10%;
+        margin-left: 10%;
+        position: relative;
+        float: right;
+        height: 100%;
+        transition: all 0.3s;
+        img {
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 100%;
+            opacity: 1;
+            transition: opacity 0.2s, width 0.3s;
+        }
+    }
+}
+
+.fileImage.open {
+    padding-top: 60px;
+    margin-right: 490px;
+    margin-left: 10px;
+    position: relative;
+    float: right;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+.fileFeed {
+    position: absolute;
+    top: 110%;
+    right: 5%;
+    width: 78px;
+    height: 78px;
+    background: @danger;
+    padding: 0;
+    border-radius: 100%;
+    transition: all 0.3s;
+    overflow: hidden;
+    box-shadow: 0px 6px 10px 2px;
+    .btn {
+        padding: 27px 30px 27px 30px;
+        margin: 0;
+        border-radius: 100%;
+        color: white;
+        text-align: center;
+        transition: all 0.3s;
+    }
+    i {
+        font-size: 1.5em;
+    }
+    .mdi-navigation-close {
+        display: none;
+    }
+    .comment{
+        overflow: hidden;
+        width: 0px;
+        height: 0px;
+    
+    }
+    .badge{
+        border-radius: 30%;
+        padding: 7px 10px 7px 10px;
+        background: @danger;
+        float: left;
+        margin-left: 5px;
+        margin-top: 10px;
+    }
+    .panel{
+        margin-left: 40px;
+        margin-right: 10px;
+    }
+    .list-group{
+        margin-bottom: 0;
+        .list-group-item{
+            margin: 0;
+            padding: 0;
+            img{border-radius: 15% !important;}
+            .list-group-item-info{
+                background: none;
+                color: @grey;
+            }
+        }
+    }
+   .list-group .list-group-separator:before{
+        width: calc(100% - 70px);
+    }
+    .list-group .list-group-item .row-content {
+        
+        width: calc(100% - 72px);
+        
+    }
+    
+}
+
+.postMode {
+    .fileFeed {
+        top: 80%;
+    }
+    .fileFeed.open {
+        top: 0%;
+        right: 0;
+        width: 480px;
+        height: 100%;
+        overflow: auto;
+        background: @lightest-grey;
+        padding-top: 110px;
+        border-radius: 0;
+        transition: all 0.3s;
+        .comment{
+            overflow: auto;
+            width: auto;
+            height: auto;
+            padding-top: 0px;
+        }
+        
+        .btn {
+            position: fixed;
+            z-index: 3;
+            width: 480px;
+            top:60px;
+            margin: 0;
+            border-radius: 0;
+            text-align: center;
+            padding: 8px;
+            transition: all 0.3s;
+            i {
+                font-size: 1.5em;
+                &:first-child {
+                    display: none;
+                }
+            }
+            .mdi-navigation-close {
+                display: block;
+                
+            }
+        }
+    }
+}
+
+.fileView.closed {
+    visibility: hidden;
+    background: rgba(255, 255, 255, 0);
+    transition: visibility 0.3s, background 0.2s;
+    .header {
+        position: absolute;
+        top: -60px;
+        transition: top 0.3s;
+    }
+    .fileImage {
+        img {
+            width: 0%;
+            opacity: 0;
+            transition: opacity 0.2s, width 0.3s;
+        }
+    }
+    .fileFeed {
+        right: -100%;
+        transition: right 0.3s;
+    }
+}

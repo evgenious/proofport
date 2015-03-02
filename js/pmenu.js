@@ -1,76 +1,117 @@
-
-$(".navigation").load("html/navigation.html", function () {
-    
-});
+var w = window.innerWidth;
+var h = window.innerHeight;
 
 
 //===============Dateiansicht=====================================
 
-var fileImg = true;
-$(".viewModeToggle").on("click", function (event) {
-  
-    $(".fileView").toggleClass("postMode");
-   if ( fileImg == false ){
-        $(".fileImage").toggleClass("open");
-       console.log(fileImg);
-   }
-});
+$(".fileContent").load("html/fileview.html", function () {
 
-$(".post-btn").on("click", function (event) {
-    event.preventDefault();
-    if( fileImg == false){
-        fileImg = true;
-    }else{fileImg = false;}
-    console.log(fileImg);
-    $(".fileFeed").toggleClass("open");
-    $(".fileImage").toggleClass("open");
-   
-});
+    var fileImg = true;
+    $(".viewModeToggle").on("click", function (event) {
 
-
-$(".fileviewclose").on("click", function (event) {
-    event.preventDefault();
-    $(".fileView").addClass("closed");
-    $( "body" ).css( "position", "relative" );
-});
-
-
-$(".mainContent").load("html/filesoverview.html", function () {
-    $(".mainContent").find(".file");
-    $.material.init();
-    
-    $(".file").on("click", function (event) {
-        event.preventDefault();
-        $(".fileView").removeClass("closed");
-        $( "body" ).css( "position", "fixed" );
+        $(".fileView").toggleClass("postMode");
+        if (fileImg == false) {
+            $(".fileImage").toggleClass("open");
+            console.log(fileImg);
+        }
     });
 
+    $(".post-btn").on("click", function (event) {
+        event.preventDefault();
+        if (fileImg == false) {
+            fileImg = true;
+        } else {
+            fileImg = false;
+        }
+        console.log(fileImg);
+        $(".fileFeed").toggleClass("open");
+        $(".fileImage").toggleClass("open");
+
+    });
+
+
+    $(".fileviewclose").on("click", function (event) {
+        event.preventDefault();
+        $(".fileView").addClass("closed");
+        $("body").css("position", "relative");
+        $("body").css("overflow", "auto");
+    });
+
+
 });
 
+//===============Projektauswahl Navigation=====================================
 
-//===============Projektauswahl=====================================
 
-$(".projectSelection").on("click", function (event) {
-    event.preventDefault();
-    $(".projectsOverview").removeClass("projectsOverviewClosed");
-    $(".darkener").removeClass("projectsOverviewClosed");
-});
+$(".projectnavigation").load("html/projectnavigation.html", function () {
 
-$(".darkener").on("click", function (event) {
-    event.preventDefault();
-    $(".projectsOverview").addClass("projectsOverviewClosed");
-    $(".darkener").addClass("projectsOverviewClosed");
-});
+    $(".projectSelection").on("click", function (event) {
+        event.preventDefault();
+        $(".projectsOverview").removeClass("projectsOverviewClosed");
+        $(".darkener").removeClass("projectsOverviewClosed");
+    });
 
-$(".projectsOverview").load("html/projectselection.html", function () {
-    $(".projectsOverview").find("#projectsOverviewClose");
-    $.material.init();
-
-    $("#projectsOverviewClose").on("click", function (event) {
+    $(".darkener").on("click", function (event) {
         event.preventDefault();
         $(".projectsOverview").addClass("projectsOverviewClosed");
         $(".darkener").addClass("projectsOverviewClosed");
     });
+
+    $(".projectsOverview").load("html/projectselection.html", function () {
+        $(".projectsOverview").find("#projectsOverviewClose");
+
+        $("#projectsOverviewClose").on("click", function (event) {
+            event.preventDefault();
+            $(".projectsOverview").addClass("projectsOverviewClosed");
+            $(".darkener").addClass("projectsOverviewClosed");
+        });
+
+    });
+
+    $("#files").on("click", function () {
+        $(".mainContent").load("html/filesoverview.html", function () {
+
+            $(".mainContent").find(".file");
+            $(".file").on("click", function (event) {
+                event.preventDefault();
+                $(".fileView").removeClass("closed");
+                if (w < 1024) {
+                    $("body").css("position", "fixed");
+                }
+                $("body").css("overflow", "hidden");
+            });
+            $.material.init();
+        });
+    });
+
+    $("#comments").on("click", function () {
+        $(".mainContent").load("html/commentsoverview.html", function () {
+            $(".mainContent").find(".file");
+            $(".file").on("click", function (event) {
+                event.preventDefault();
+                $(".fileView").removeClass("closed");
+                if (w < 1024) {
+                    $("body").css("position", "fixed");
+                }
+                $("body").css("overflow", "hidden");
+            });
+        });
+    });
+
+
+
+});
+
+
+
+
+//===============Haupt-Navigation=====================================
+
+$(".navigation").load("html/navigation.html", function () {
+
+    new pMenu(document.getElementById('sideNav'));
+
+    $.material.init();
 
 });
 
@@ -112,6 +153,7 @@ $(".projectsOverview").load("html/projectselection.html", function () {
             this.menu = this.el.querySelector('.navbar');
             this.trigger = this.el.querySelector('.navbar');
             $("body").find(".touchMenuClose");
+            $("body").find(".projectNav");
             this.trigger2 = this.el.querySelector('.touchMenuClose');
             this.subnav = this.el.querySelector('.projectNav');
             this.isMenuOpen = false;

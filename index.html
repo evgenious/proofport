@@ -43,24 +43,24 @@
 
         </div>
 
-        <div class="row ">
+        <div class="row projectnavigation">
             <div class="navbar projectNav ">
-                <div class="col-sm-2  col-md-2 col-lg-3 projectSelection">
+                <div class=" col-sm-2  col-md-2 col-lg-3 projectSelection">
                     <div class="buttonContainer"><a href="javascript:void(0)" class="btn btn-default"><i class="p-list"></i><span>Website Relaunch</span></a>
                     </div>
                 </div>
                 <div class="col-sm-10  col-md-10 col-lg-6 ">
                     <div class="navbar-collapse collapse navbar-responsive-collapse ">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="javascript:void(0)">Files</a>
+                            <li class="active" id="files"><a href="javascript:void(0)">Files</a>
                             </li>
-                            <li><a href="javascript:void(0)">Comments</a>
+                            <li id="comments"><a href="javascript:void(0)">Comments</a>
                             </li>
-                            <li><a href="javascript:void(0)">History</a>
+                            <li id="history"><a href="javascript:void(0)">History</a>
                             </li>
-                            <li><a href="javascript:void(0)">Member</a>
+                            <li id="member"><a href="javascript:void(0)">Member</a>
                             </li>
-                            <li><a href="javascript:void(0)">Settings</a>
+                            <li id="settings"><a href="javascript:void(0)">Settings</a>
                             </li>
                         </ul>
                     </div>
@@ -77,89 +77,15 @@
 
 
         <div class="mainContent">
+
+
+
         </div>
 
-        <div class="fileView closed ">
-
-            <div class="header container-fluid">
-                <div class="col-sm-1  ">
-                    <span class="label label-success"><p>approved</p></span>
-                </div>
-                <div class="col-sm-4  ">
-
-
-                    <div class="btn-group version">
-                        <a href="javascript:void(0)" data-target="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <i class="mdi-action-schedule"></i> Version 4
-
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0)"> Version 3</a>
-                            </li>
-                            <li><a href="javascript:void(0)">Version 2</a>
-                            </li>
-                            <li><a href="javascript:void(0)">Version 1</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <h3>Desktop_fullpage.pdf</h3>
-                </div>
-                <div class="col-sm-3  ">
-                    <div class="togglebutton ">
-                        <label>
-                            view
-                            <input type="checkbox" class="viewModeToggle"> post
-                        </label>
-                    </div>
-                </div>
-                <div class="col-sm-2 pagination ">
-                    <i class="mdi-hardware-keyboard-arrow-down"></i> 01 of 01
-                    <i class="mdi-hardware-keyboard-arrow-up"></i>
-                </div>
-                <div class="col-sm-1 filesettings ">
-                    <div class="btn-group">
-                        <a href="bootstrap-elements.html" data-target="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <i class="p-settings"></i>
-
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="javascript:void(0)"> <i class="p-refresh"></i>update</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"> <i class="p-downloadfile"></i>download</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"> <i class="p-docs"></i>duplicate</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"> <i class="p-trash"></i>delete</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"> <i class="p-link"></i>share</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"> <i class="p-printer"></i>print</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"> <i class="p-info"></i>file info</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-1 fileviewclose ">
-                    <i class="mdi-navigation-close"></i>
-                </div>
-            </div>
-            
-            <div class="fileImage">
-                <img src="img/projectpreview/141022_BMW_i_Electrifyng_Germany_Final_md.jpg" class="">
-            </div>
-            
-            <div class="fileFeed">
-                <a href="javascript:void(0)" class="btn btn-danger btn-raised post-btn"><i class="p-bubbles"></i><i class="mdi-navigation-close"></i></a>
-            </div>
+        <div class="fileContent">
         </div>
+
+
 
     </div>
 
@@ -168,7 +94,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script>
     </script>
@@ -176,18 +102,13 @@
     <script>
         $(function () {
             $.material.init();
-
         });
-       
     </script>
     <script src="https://fezvrasta.github.io/snackbarjs/dist/snackbar.min.js"></script>
     <script src="js/material.min.js"></script>
     <script src="js/ripples.min.js"></script>
     <script src="js/pmenu.js"></script>
     <script>
-        setTimeout(function () {
-            new pMenu(document.getElementById('sideNav'));
-        }, 300);
     </script>
 
 </body>
