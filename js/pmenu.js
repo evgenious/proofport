@@ -95,10 +95,17 @@ $(".projectnavigation").load("html/projectnavigation.html", function () {
                 }
                 $("body").css("overflow", "hidden");
             });
+            $.material.init();
         });
     });
 
-
+    $("#history").on("click", function () {
+        $(".mainContent").load("html/historyoverview.html", function () {
+            $.material.init();
+        });
+    });
+    
+     
 
 });
 
